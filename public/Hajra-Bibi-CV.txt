@@ -1,0 +1,38 @@
+HAJRA BIBI
+Aspiring Software Developer | Frontend Developer
+Samundri / Faisalabad, Pakistan
+Email: your-email@gmail.com (replace with your email address)
+GitHub: https://github.com/your-username
+LinkedIn: https://www.linkedin.com/in/your-username
+
+PROFILE
+I am a Software Engineering student with a passion for web development, clean
+code, and building useful real-world projects.
+
+EDUCATION
+BS Computer Science — 5th Semester
+
+SKILLS
+Frontend: HTML5, CSS3, JavaScript, React, Tailwind CSS
+Tools & Workflow: Vite, Git, GitHub, VS Code
+Backend & Database: Supabase, REST APIs
+
+PROJECTS
+Task Management App
+Built with React and Supabase. Includes state management, CRUD operations, and
+database synchronization.
+
+Restaurant / Order Booking App
+Built with React and Tailwind CSS. Includes category filtering, cart management,
+and subtotal and tax calculations.
+
+Interactive Web App
+Interactive web app with custom animations, interactive modals, and gallery
+components.
+
+SERVICES
+Web development with React and Tailwind CSS; UI/UX and frontend design; data
+entry and research.
+
+Before sharing this CV, replace the sample email and social links with your real
+contact details. Add your institution and graduation details if desired.
