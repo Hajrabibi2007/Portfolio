@@ -1,48 +1,61 @@
 import { ArrowRight, ClipboardList, Code2, Palette, Search } from 'lucide-react'
+import image4 from '../assets/image4.jpg'
 
 const services = [
   {
     icon: Code2,
     title: 'Web Development',
-    description: 'Responsive, modern web apps using React and Tailwind CSS.',
-    tone: 'violet',
+    description: 'Modern and responsive websites using the latest technologies.',
   },
   {
     icon: Palette,
-    title: 'UI/UX & Frontend Design',
-    description: 'Clean and attractive component design with a focus on usability.',
-    tone: 'indigo',
+    title: 'Website Design',
+    description: 'Clean and attractive UI/UX designs made with your visitors in mind.',
   },
   {
     icon: ClipboardList,
     title: 'Data Entry',
-    description: 'Accurate, organized data work with a careful eye for detail.',
-    tone: 'blue',
+    description: 'Organized and accurate data entry work, handled with care.',
   },
   {
     icon: Search,
     title: 'Research & Analysis',
-    description: 'Web research, technical analysis, and useful documentation.',
-    tone: 'rose',
+    description: 'Web research and data analysis to turn information into insight.',
   },
 ]
+
+function WorkspaceIllustration() {
+  return (
+    <figure className="relative w-full max-w-[190px] overflow-hidden rounded-2xl">
+      <img src={image4} alt="Bright laptop workspace with a notebook and coffee" className="block h-auto w-full" />
+      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent px-3 pb-3 pt-10 font-display text-sm italic leading-[1.2] text-white sm:text-base">
+        Turn Ideas into Reality <span className="text-[#cbbaff]">↗</span>
+      </figcaption>
+    </figure>
+  )
+}
 
 function Services() {
   return (
     <section id="services" className="scroll-mt-[62px] bg-[#fafaff] px-5 py-14 dark:bg-[#191a2b] sm:px-8 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-6 max-w-xl">
-          <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.24em] text-[#7864d2]">✦ Services</p>
-          <h2 className="font-display text-3xl font-bold tracking-[-0.045em] sm:text-4xl">What I Can Do</h2>
-          <p className="mt-2 text-[11px] leading-relaxed text-[#747b8e] dark:text-[#b4b5c6]">I offer these services to help individuals and businesses build their online presence.</p>
+        <div className="mb-6 grid items-center gap-5 sm:grid-cols-[1fr_0.95fr] sm:gap-8">
+          <div>
+            <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.24em] text-[#7864d2]">✦ Services</p>
+            <h2 className="font-display text-3xl font-bold tracking-[-0.045em] sm:text-4xl">What I Can Do</h2>
+            <p className="mt-2 max-w-md text-[11px] font-medium leading-relaxed text-[#555b6f] dark:text-[#d0d0df]">
+              I offer these services to help individuals and businesses build their online presence.
+            </p>
+          </div>
+          <div className="flex justify-start sm:justify-end"><WorkspaceIllustration /></div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {services.map(({ icon: Icon, title, description }) => (
-            <article key={title} className="group flex min-h-[160px] flex-col rounded-xl border border-[#eeedf5] bg-white p-4 shadow-[0_5px_22px_rgba(45,43,69,0.035)] transition hover:-translate-y-0.5 hover:border-[#d9d0ff] dark:border-white/10 dark:bg-white/[0.035]">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f0edff] text-[#7864d2] dark:bg-[#a78bfa]/10 dark:text-[#c0b0ff]"><Icon size={16} /></span>
-              <h3 className="mt-3 font-display text-[12px] font-bold leading-snug">{title}</h3>
-              <p className="mt-1.5 flex-1 text-[10px] leading-[1.65] text-[#777d90] dark:text-[#b4b5c6]">{description}</p>
-              <a href="#contact" aria-label={`Ask about ${title}`} className="mt-3 flex h-6 w-6 items-center justify-center self-end rounded-full bg-[#eee9ff] text-[#7864d2] transition group-hover:bg-[#7864d2] group-hover:text-white dark:bg-white/10 dark:group-hover:bg-[#7864d2]"><ArrowRight size={13} /></a>
+            <article key={title} className="group flex min-h-[172px] flex-col rounded-xl border border-[#eeedf5] bg-white p-4 shadow-[0_5px_22px_rgba(45,43,69,0.035)] transition hover:-translate-y-0.5 hover:border-[#d9d0ff] dark:border-white/10 dark:bg-[#222336]">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#eeeaff] text-[#6955dd] dark:bg-[#a78bfa]/15 dark:text-[#c0b0ff]"><Icon size={18} strokeWidth={2} /></span>
+              <h3 className="mt-3 font-display text-[13px] font-bold leading-snug">{title}</h3>
+              <p className="mt-1.5 flex-1 text-[10px] font-medium leading-[1.65] text-[#555b6f] dark:text-[#d0d0df]">{description}</p>
+              <a href="#contact" aria-label={`Ask about ${title}`} className="mt-3 flex h-7 w-7 items-center justify-center self-end rounded-full bg-[#eee9ff] text-[#7864d2] transition group-hover:bg-[#7864d2] group-hover:text-white dark:bg-white/10 dark:group-hover:bg-[#7864d2]"><ArrowRight size={14} /></a>
             </article>
           ))}
         </div>

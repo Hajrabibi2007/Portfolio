@@ -1,4 +1,5 @@
 import { ArrowRight, Github, Instagram, Linkedin, Mail, Sparkles } from 'lucide-react'
+import image1 from '../assets/image1.jpg'
 
 const githubUrl = 'https://github.com/Hajrabibi2007'
 const linkedInUrl = 'https://www.linkedin.com/in/hajra-bibi-b47110320'
@@ -14,9 +15,6 @@ const highlights = [
 function Hero() {
   return (
     <section id="home" className="hero-surface relative isolate scroll-mt-16 overflow-hidden px-5 text-white sm:px-8">
-      <div aria-hidden="true" className="hero-orbit absolute right-[12%] top-10 -z-10 h-[400px] w-[400px] rounded-full border border-[#8270d7]/25" />
-      <div aria-hidden="true" className="hero-orbit absolute right-[16%] top-20 -z-10 h-[320px] w-[320px] rounded-full border border-[#8270d7]/20" />
-      <div aria-hidden="true" className="absolute -right-20 top-24 -z-10 h-80 w-80 rounded-full bg-[#7565d6]/20 blur-[100px]" />
       <div className="mx-auto grid min-h-[560px] max-w-6xl items-center gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
         <div className="relative z-10">
           <div className="mb-4 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#b7a8ff]">
@@ -29,8 +27,8 @@ function Hero() {
           <p className="mt-3 font-display text-xl font-semibold tracking-tight text-white/95 sm:text-2xl">
             Aspiring Software Developer
           </p>
-          <p className="mt-1 font-display text-sm font-medium text-[#bdb1ff]">Frontend Developer</p>
-          <p className="mt-4 max-w-[490px] text-[13px] leading-[1.75] text-[#c6c7d4] sm:text-sm">
+          <p className="mt-1 font-display text-sm font-semibold text-[#cbbdff]">Frontend Developer</p>
+          <p className="mt-4 max-w-[490px] text-[13px] font-medium leading-[1.75] text-[#e0e0ea] sm:text-sm">
             I am a Software Engineering student with a passion for web development, clean code, and building useful real-world projects.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -63,37 +61,35 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto flex min-h-[330px] w-full max-w-[510px] items-center justify-center lg:min-h-[390px]">
-          <div aria-hidden="true" className="absolute left-[10%] top-[19%] hidden -rotate-12 font-display text-lg italic leading-tight text-[#c1b6ff]/80 sm:block">
-            Build<br />Learn<br />Grow
-            <span className="mt-1 block text-sm">↘</span>
-          </div>
-          <div className="hero-profile-art relative flex h-[290px] w-[290px] items-center justify-center rounded-full border border-[#a78bfa]/30 sm:h-[340px] sm:w-[340px]">
-            <div className="absolute inset-5 rounded-full border border-[#a78bfa]/20" />
-            <div className="absolute inset-10 rounded-full bg-gradient-to-br from-[#7565d6]/30 via-[#252744]/70 to-[#111426]" />
-            <div className="relative flex h-36 w-36 items-center justify-center rounded-full border border-white/20 bg-white/[0.07] shadow-[0_24px_90px_rgba(112,92,219,0.22)] backdrop-blur sm:h-44 sm:w-44">
-              <span className="font-display text-6xl font-bold tracking-[-0.09em] text-[#d3c8ff] sm:text-7xl">HB</span>
-              <span className="absolute -bottom-2 right-1 flex h-10 w-10 items-center justify-center rounded-full border-4 border-[#181a31] bg-[#a78bfa] text-[#17142b]">
-                <Sparkles size={17} />
-              </span>
+        <div className="relative mx-auto w-full max-w-[450px]">
+          <p className="absolute left-0 top-0 z-20 font-display text-sm italic leading-tight text-[#d1c8ff] sm:text-base">
+            Build · Learn · Grow <span className="text-xs">↘</span>
+          </p>
+          <div className="relative mt-6 min-h-[410px] w-full">
+            <div aria-hidden="true" className="absolute left-[46%] top-1/2 h-[390px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#a99aff]/25" />
+            <div aria-hidden="true" className="absolute left-[46%] top-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#a99aff]/20" />
+            <div aria-hidden="true" className="absolute left-[46%] top-1/2 h-[270px] w-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#a99aff]/15" />
+            <div aria-hidden="true" className="absolute left-[30%] top-[18%] h-64 w-64 rounded-full bg-[#7565d6]/20 blur-[90px]" />
+            <div className="absolute left-0 top-4 z-10 aspect-[487/640] w-[68%] max-w-[290px] overflow-hidden rounded-[5rem_1.5rem_5rem_1.5rem] border border-white/20 shadow-[0_24px_90px_rgba(112,92,219,0.3)] ring-4 ring-[#a78bfa]/10">
+              <img src={image1} alt="Hajra Bibi" className="block h-full w-full object-cover" />
             </div>
-            <div className="absolute bottom-7 left-4 rounded-full border border-white/10 bg-[#1d2039]/90 px-3 py-1.5 text-[10px] font-medium text-[#e1dcff] shadow-xl backdrop-blur">
-              BS Computer Science · 5th Semester
+            <p className="absolute bottom-3 left-1 z-20 rounded-full border border-white/20 bg-[#1d2039]/95 px-3 py-1.5 text-center text-[10px] font-semibold text-white shadow-xl">
+            BS Computer Science · 5th Semester
+            </p>
+            <div className="absolute right-0 top-[46%] z-20 grid w-[190px] -translate-y-1/2 grid-cols-2 gap-1 rounded-2xl border border-white/10 bg-[#f8f7ff] p-2 text-[#25243b] shadow-2xl shadow-black/30 sm:w-[205px] sm:gap-1.5 sm:p-2.5">
+              {highlights.map(({ icon: Icon, label, detail }) => (
+                <div key={label} className="flex items-center gap-2 rounded-xl px-1.5 py-1.5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#eee9ff] text-[#7864d2]"><Icon size={14} /></span>
+                  <span className="text-[9px] font-semibold leading-tight sm:text-[10px]">{label}<br />{detail}</span>
+                </div>
+              ))}
             </div>
-          </div>
-          <div className="absolute right-0 top-1/2 grid w-[148px] -translate-y-1/2 gap-1.5 rounded-2xl border border-white/10 bg-[#f8f7ff] p-2.5 text-[#25243b] shadow-2xl shadow-black/20 sm:-right-2 sm:w-[160px] sm:p-3">
-            {highlights.map(({ icon: Icon, label, detail }) => (
-              <div key={label} className="flex items-center gap-2 rounded-xl px-1.5 py-2">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#eee9ff] text-[#7864d2]"><Icon size={14} /></span>
-                <span className="text-[9px] font-semibold leading-tight sm:text-[10px]">{label}<br />{detail}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl items-center justify-between border-t border-white/10 py-4 text-[10px] font-medium text-[#b7b8c8] sm:text-[11px]">
-        <span>Samundri / Faisalabad, Pakistan</span>
-        <a href="#about" className="transition hover:text-white">Scroll to explore ↓</a>
+        <span className="text-[#dedee8]">Samundri / Faisalabad, Pakistan</span>
+        <a href="#about" className="font-semibold text-[#dedee8] transition hover:text-white">Scroll to explore ↓</a>
       </div>
     </section>
   )

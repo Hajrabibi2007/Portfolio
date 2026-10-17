@@ -40,45 +40,6 @@ a {
     #101426;
 }
 
-.hero-profile-art::before,
-.hero-profile-art::after {
-  position: absolute;
-  content: '';
-  border-radius: 9999px;
-  border: 1px solid rgb(183 164 255 / 35%);
-}
-
-.hero-profile-art::before {
-  inset: 12px -8px 22px 26px;
-  transform: rotate(-14deg);
-}
-
-.hero-profile-art::after {
-  inset: 34px 20px 7px 8px;
-  transform: rotate(12deg);
-}
-
-.project-window {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid rgb(255 255 255 / 80%);
-  border-radius: 0.6rem;
-  background: rgb(255 255 255 / 90%);
-  box-shadow: 0 12px 30px rgb(39 36 70 / 14%);
-}
-
-.project-window-dark {
-  border-color: rgb(255 255 255 / 12%);
-  background: #17251f;
-  box-shadow: 0 12px 30px rgb(19 30 24 / 18%);
-}
-
-.dark .project-window:not(.project-window-dark) {
-  background: #222336;
-}
-
 .about-visual {
   isolation: isolate;
 }

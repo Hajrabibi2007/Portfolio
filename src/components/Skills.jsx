@@ -1,34 +1,99 @@
 import { useEffect, useRef, useState } from 'react'
-import { Atom, Braces, Code2, Database, FileCode2, GitBranch, PanelsTopLeft, Terminal } from 'lucide-react'
+import { Github } from 'lucide-react'
+import image3 from '../assets/image3.jpg'
 
-const skillGroups = [
-  {
-    title: 'Frontend',
-    skills: [
-      { name: 'HTML5', icon: Code2 },
-      { name: 'CSS3', icon: PanelsTopLeft },
-      { name: 'JavaScript', icon: Braces },
-      { name: 'React', icon: Atom },
-      { name: 'Tailwind CSS', icon: FileCode2 },
-    ],
-  },
-  {
-    title: 'Tools & Workflow',
-    skills: [
-      { name: 'Vite', icon: Terminal },
-      { name: 'Git', icon: GitBranch },
-      { name: 'GitHub', icon: GitBranch },
-      { name: 'VS Code', icon: Code2 },
-    ],
-  },
-  {
-    title: 'Backend & Database',
-    skills: [
-      { name: 'Supabase', icon: Database },
-      { name: 'REST APIs', icon: Braces },
-    ],
-  },
+const skills = [
+  { name: 'HTML', percentage: 90, logo: 'html' },
+  { name: 'CSS', percentage: 85, logo: 'css' },
+  { name: 'JavaScript', percentage: 80, logo: 'javascript' },
+  { name: 'React', percentage: 75, logo: 'react' },
+  { name: 'Database (MySQL)', percentage: 70, logo: 'mysql' },
+  { name: 'UI/UX Design', percentage: 75, logo: 'figma' },
+  { name: 'Git & GitHub', percentage: 80, logo: 'github' },
+  { name: 'Python', percentage: 65, logo: 'python' },
 ]
+
+function SkillLogo({ type }) {
+  if (type === 'github') {
+    return <Github aria-hidden="true" size={36} strokeWidth={2.4} className="text-[#171717]" />
+  }
+
+  if (type === 'react') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 48 48" className="h-10 w-10 fill-none stroke-[#54c8e8]" strokeWidth="2">
+        <circle cx="24" cy="24" r="3.2" fill="#54c8e8" stroke="none" />
+        <ellipse cx="24" cy="24" rx="20" ry="7.5" />
+        <ellipse cx="24" cy="24" rx="20" ry="7.5" transform="rotate(60 24 24)" />
+        <ellipse cx="24" cy="24" rx="20" ry="7.5" transform="rotate(120 24 24)" />
+      </svg>
+    )
+  }
+
+  if (type === 'figma') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 40 48" className="h-10 w-8">
+        <path fill="#f24e1e" d="M12 2h8v12h-8a6 6 0 1 1 0-12Z" />
+        <path fill="#ff7262" d="M20 2h8a6 6 0 1 1 0 12h-8Z" />
+        <path fill="#a259ff" d="M12 14h8v12h-8a6 6 0 1 1 0-12Z" />
+        <circle cx="26" cy="20" r="6" fill="#1abcfe" />
+        <path fill="#0acf83" d="M12 26h8v8a6 6 0 1 1-8-5.65Z" />
+      </svg>
+    )
+  }
+
+  if (type === 'python') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 48 48" className="h-10 w-10">
+        <path fill="#3776ab" d="M23 3c-10 0-10 4-10 9v5h13v2H8c-5 0-7 4-7 10s2 10 7 10h5v-7c0-5 4-9 9-9h10c4 0 7-3 7-7V12c0-6-5-9-16-9Zm-5 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
+        <path fill="#ffd343" d="M25 45c10 0 10-4 10-9v-5H22v-2h18c5 0 7-4 7-10s-2-10-7-10h-5v7c0 5-4 9-9 9H16c-4 0-7 3-7 7v4c0 6 5 9 16 9Zm5-7a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" />
+      </svg>
+    )
+  }
+
+  if (type === 'mysql') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 48 48" className="h-10 w-10">
+        <ellipse cx="19" cy="11" rx="12" ry="5" fill="#4479a1" />
+        <path d="M7 11v21c0 3 5 5 12 5s12-2 12-5V11c0 3-5 5-12 5S7 14 7 11Z" fill="#4479a1" />
+        <path d="M7 21c0 3 5 5 12 5s12-2 12-5M7 29c0 3 5 5 12 5s12-2 12-5" fill="none" stroke="#d8e9f4" strokeWidth="2" />
+        <path d="M34 12c3-4 7-4 9-3-3 1-4 3-4 5l4 4c-4 0-7-2-9-6Z" fill="#e58b35" />
+      </svg>
+    )
+  }
+
+  const colors = {
+    html: { fill: '#e44d26', label: '5' },
+    css: { fill: '#264de4', label: '3' },
+    javascript: { fill: '#f0db4f', label: 'JS' },
+  }
+  const brand = colors[type]
+  return (
+    <svg aria-hidden="true" viewBox="0 0 48 48" className="h-10 w-10">
+      {type === 'javascript' ? (
+        <>
+          <rect x="3" y="3" width="42" height="42" rx="2" fill={brand.fill} />
+          <text x="24" y="34" fill="#323330" fontSize="17" fontWeight="700" textAnchor="middle">{brand.label}</text>
+        </>
+      ) : (
+        <>
+          <path fill={brand.fill} d="M5 3h38l-3.5 36L24 45 8.5 39 5 3Z" />
+          <path fill="#fff" d={type === 'html' ? 'M15 11h19l-.5 5H20l.5 4h12l-1.2 12L24 35l-7-3-.5-6h5l.3 3 2.5 1 2.7-1 .4-4H16l-1-14Z' : 'M14 11h21l-.5 5H20l.5 4h13l-1.4 12L24 35l-8-3-.5-6h5l.3 3 3.2 1 3.4-1 .4-4H16l-2-14Z'} />
+        </>
+      )}
+    </svg>
+  )
+}
+
+function LearningIllustration() {
+  return (
+    <figure className="relative w-full max-w-[170px] overflow-hidden rounded-2xl">
+      <img src={image3} alt="Laptop on a warm, softly lit workspace" className="block h-auto w-full" />
+      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent px-3 pb-3 pt-10 font-display text-sm italic leading-[1.25] text-white sm:text-base">
+        Keep Learning, Keep Growing <span className="text-[#cbbaff]">♡</span>
+      </figcaption>
+    </figure>
+  )
+}
 
 function Skills() {
   const sectionRef = useRef(null)
@@ -53,34 +118,43 @@ function Skills() {
 
   return (
     <section id="skills" ref={sectionRef} className="scroll-mt-[62px] bg-[#fafaff] px-5 py-14 dark:bg-[#191a2b] sm:px-8 sm:py-16">
-      <div className="mx-auto grid max-w-6xl gap-7 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
-        <div>
-          <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.24em] text-[#7864d2]">✦ My skills</p>
-          <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-[-0.045em] sm:text-4xl">Skills &<br />Technologies</h2>
-          <p className="mt-4 max-w-sm text-[12px] leading-[1.8] text-[#687087] dark:text-[#c0c1d0]">
-            Here are the technologies and tools I have learned and continue to improve.
-          </p>
-          <div className="skills-note relative mt-5 hidden h-[90px] overflow-hidden rounded-2xl bg-[#f0edff] px-4 py-3 text-xs text-[#72639a] dark:bg-white/[0.04] lg:block">
-            <span className="font-display text-sm italic">Keep learning,<br />keep growing ♡</span>
-            <Code2 className="absolute bottom-3 right-5 text-[#9f8be7]" size={32} />
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-6 grid items-center gap-5 sm:grid-cols-[1fr_0.95fr] sm:gap-8">
+          <div>
+            <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.24em] text-[#7864d2]">✦ My skills</p>
+            <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-[-0.045em] sm:text-4xl">Skills &<br />Technologies</h2>
+            <p className="mt-3 max-w-sm text-[12px] font-medium leading-[1.8] text-[#4f566a] dark:text-[#d5d5e2]">
+              Here are the technologies and tools I have learned and continue to improve.
+            </p>
           </div>
+          <div className="flex justify-start sm:justify-end"><LearningIllustration /></div>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {skillGroups.flatMap((group) => group.skills.map((skill) => ({ ...skill, group: group.title }))).map(({ name, icon: Icon, group }, index) => (
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {skills.map(({ name, percentage, logo }, index) => (
             <article
               key={name}
               style={{ transitionDelay: hasEntered ? `${index * 45}ms` : '0ms' }}
-              className={`rounded-xl border border-[#eeedf5] bg-white p-3.5 shadow-[0_4px_18px_rgba(45,43,69,0.03)] transition duration-500 hover:-translate-y-0.5 hover:border-[#d9d0ff] dark:border-white/10 dark:bg-white/[0.035] ${hasEntered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`}
+              className={`rounded-xl border border-[#eeedf5] bg-white p-3.5 shadow-[0_4px_18px_rgba(45,43,69,0.03)] transition duration-500 hover:-translate-y-0.5 hover:border-[#d9d0ff] dark:border-white/10 dark:bg-[#222336] ${hasEntered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`}
             >
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f0edff] text-[#7864d2] dark:bg-[#a78bfa]/10 dark:text-[#c0b0ff]"><Icon size={18} strokeWidth={1.9} /></span>
-                <div className="min-w-0">
-                  <h3 className="truncate font-display text-[12px] font-bold">{name}</h3>
-                  <p className="mt-0.5 text-[9px] text-[#8c91a3]">{group}</p>
-                </div>
+              <div className="flex min-h-[89px] flex-col items-center justify-center gap-1.5">
+                <SkillLogo type={logo} />
+                <h3 className="font-display text-center text-[12px] font-bold">{name}</h3>
               </div>
-              <div aria-hidden="true" className="mt-3 h-1 overflow-hidden rounded-full bg-[#eeedf5] dark:bg-white/10">
-                <div className={`h-full origin-left rounded-full bg-gradient-to-r from-[#7361dc] to-[#a78bfa] transition-transform duration-1000 ${hasEntered ? 'scale-x-100' : 'scale-x-0'}`} />
+              <div className="mt-2 flex items-center gap-2">
+                <div
+                  role="progressbar"
+                  aria-label={`${name} proficiency`}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow={percentage}
+                  className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#eeedf5] dark:bg-white/10"
+                >
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-[#536ff1] to-[#7e9cff] transition-[width] duration-1000"
+                    style={{ width: hasEntered ? `${percentage}%` : '0%' }}
+                  />
+                </div>
+                <span className="min-w-7 text-right text-[9px] font-semibold text-[#555b6d] dark:text-[#d3d2df]">{percentage}%</span>
               </div>
             </article>
           ))}
