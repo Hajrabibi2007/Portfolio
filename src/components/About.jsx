@@ -48,9 +48,6 @@ function About() {
           </div>
           <figure className="about-visual relative mx-auto aspect-[487/640] w-full max-w-[270px] overflow-hidden rounded-[5rem_1.5rem_5rem_1.5rem]">
             <img src={image2} alt="Hajra Bibi working at her desk" className="block h-full w-full object-cover" />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-4 pb-4 pt-12 text-center font-display text-sm italic text-white">
-              Good Ideas Take Time ♡
-            </figcaption>
           </figure>
        </div>
         <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,5 +1,4 @@
 import { ArrowRight, ClipboardList, Code2, Palette, Search } from 'lucide-react'
-import image4 from '../assets/image4.jpg'
 
 const services = [
   {
@@ -24,22 +23,11 @@ const services = [
   },
 ]
 
-function WorkspaceIllustration() {
-  return (
-    <figure className="relative w-full max-w-[190px] overflow-hidden rounded-2xl">
-      <img src={image4} alt="Bright laptop workspace with a notebook and coffee" className="block h-auto w-full" />
-      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent px-3 pb-3 pt-10 font-display text-sm italic leading-[1.2] text-white sm:text-base">
-        Turn Ideas into Reality <span className="text-[#cbbaff]">↗</span>
-      </figcaption>
-    </figure>
-  )
-}
-
 function Services() {
   return (
     <section id="services" className="scroll-mt-[62px] bg-[#fafaff] px-5 py-14 dark:bg-[#191a2b] sm:px-8 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-6 grid items-center gap-5 sm:grid-cols-[1fr_0.95fr] sm:gap-8">
+        <div className="mb-6">
           <div>
             <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.24em] text-[#7864d2]">✦ Services</p>
             <h2 className="font-display text-3xl font-bold tracking-[-0.045em] sm:text-4xl">What I Can Do</h2>
@@ -47,7 +35,6 @@ function Services() {
               I offer these services to help individuals and businesses build their online presence.
             </p>
           </div>
-          <div className="flex justify-start sm:justify-end"><WorkspaceIllustration /></div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {services.map(({ icon: Icon, title, description }) => (

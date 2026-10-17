@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { Github } from 'lucide-react'
-import image3 from '../assets/image3.jpg'
 
 const skills = [
-  { name: 'HTML', percentage: 90, logo: 'html' },
-  { name: 'CSS', percentage: 85, logo: 'css' },
-  { name: 'JavaScript', percentage: 80, logo: 'javascript' },
-  { name: 'React', percentage: 75, logo: 'react' },
-  { name: 'Database (MySQL)', percentage: 70, logo: 'mysql' },
-  { name: 'UI/UX Design', percentage: 75, logo: 'figma' },
-  { name: 'Git & GitHub', percentage: 80, logo: 'github' },
-  { name: 'Python', percentage: 65, logo: 'python' },
+  { name: 'HTML', logo: 'html' },
+  { name: 'CSS', logo: 'css' },
+  { name: 'JavaScript', logo: 'javascript' },
+  { name: 'React', logo: 'react' },
+  { name: 'Database (MySQL)', logo: 'mysql' },
+  { name: 'UI/UX Design', logo: 'figma' },
+  { name: 'Git & GitHub', logo: 'github' },
+  { name: 'Python', logo: 'python' },
 ]
 
 function SkillLogo({ type }) {
@@ -84,17 +83,6 @@ function SkillLogo({ type }) {
   )
 }
 
-function LearningIllustration() {
-  return (
-    <figure className="relative w-full max-w-[170px] overflow-hidden rounded-2xl">
-      <img src={image3} alt="Laptop on a warm, softly lit workspace" className="block h-auto w-full" />
-      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent px-3 pb-3 pt-10 font-display text-sm italic leading-[1.25] text-white sm:text-base">
-        Keep Learning, Keep Growing <span className="text-[#cbbaff]">♡</span>
-      </figcaption>
-    </figure>
-  )
-}
-
 function Skills() {
   const sectionRef = useRef(null)
   const [hasEntered, setHasEntered] = useState(false)
@@ -119,7 +107,7 @@ function Skills() {
   return (
     <section id="skills" ref={sectionRef} className="scroll-mt-[62px] bg-[#fafaff] px-5 py-14 dark:bg-[#191a2b] sm:px-8 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-6 grid items-center gap-5 sm:grid-cols-[1fr_0.95fr] sm:gap-8">
+        <div className="mb-6">
           <div>
             <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.24em] text-[#7864d2]">✦ My skills</p>
             <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-[-0.045em] sm:text-4xl">Skills &<br />Technologies</h2>
@@ -127,10 +115,9 @@ function Skills() {
               Here are the technologies and tools I have learned and continue to improve.
             </p>
           </div>
-          <div className="flex justify-start sm:justify-end"><LearningIllustration /></div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {skills.map(({ name, percentage, logo }, index) => (
+          {skills.map(({ name, logo }, index) => (
             <article
               key={name}
               style={{ transitionDelay: hasEntered ? `${index * 45}ms` : '0ms' }}
@@ -139,22 +126,6 @@ function Skills() {
               <div className="flex min-h-[89px] flex-col items-center justify-center gap-1.5">
                 <SkillLogo type={logo} />
                 <h3 className="font-display text-center text-[12px] font-bold">{name}</h3>
-              </div>
-              <div className="mt-2 flex items-center gap-2">
-                <div
-                  role="progressbar"
-                  aria-label={`${name} proficiency`}
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-valuenow={percentage}
-                  className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#eeedf5] dark:bg-white/10"
-                >
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-[#536ff1] to-[#7e9cff] transition-[width] duration-1000"
-                    style={{ width: hasEntered ? `${percentage}%` : '0%' }}
-                  />
-                </div>
-                <span className="min-w-7 text-right text-[9px] font-semibold text-[#555b6d] dark:text-[#d3d2df]">{percentage}%</span>
               </div>
             </article>
           ))}
